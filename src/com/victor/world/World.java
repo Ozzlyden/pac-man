@@ -4,6 +4,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import com.victor.entities.Entity;
+import com.victor.entities.Moeda;
 import com.victor.main.Game;
 
 public class World {
@@ -25,6 +28,13 @@ public class World {
 				for(int yy = 0; yy < map.getHeight(); yy++){
 					int pixelAtual = pixels[xx + (yy * map.getWidth())];
 					tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16,yy*16,Tile.TILE_FLOOR);
+					
+					/*
+					 * Player (0xFF0026FF)
+					 * Moeda  (0xFFFFD818)
+					 */
+					
+					
 					if(pixelAtual == 0xFF000000){
 						//Floor
 						tiles[xx + (yy * WIDTH)] = new FloorTile(xx*16,yy*16,Tile.TILE_FLOOR);
@@ -37,6 +47,10 @@ public class World {
 						Game.player.setY(yy*16);
 					}else if(pixelAtual == 0xFFFF0000) {
 						//Instanciar inimigo e adicionar a lista das entities
+					}else if(pixelAtual == 0xFFFFD800) {
+						//Moeda
+						Moeda moeda = new Moeda(xx*16, yy*16, 16, 16, 0, Entity.MOEDA_SPRITE);
+						Game.entities.add(moeda);
 					}
 				}
 			}

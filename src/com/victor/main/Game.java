@@ -67,13 +67,14 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener, 
 		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
 		spritesheet = new Spritesheet("/spritesheet.png");	//chamando o arquivo res/spritesheet.png
 		
+		//Instanciando Entities
+		entities = new ArrayList<Entity>();
+		
 		//INICIALIZANDO OBJETOS
-		player = new Player(0, 0, 16, 16, 1, spritesheet.getSprite(32, 0, 16, 16));
+		player = new Player(0, 0, 16, 16, 2, spritesheet.getSprite(32, 0, 16, 16));
 		world = new World("/level1.png");
 		ui = new UI();
 		
-		//Instanciando Entities
-		entities = new ArrayList<Entity>();
 		entities.add(player);
 	}
 	

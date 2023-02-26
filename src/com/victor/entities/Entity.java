@@ -14,7 +14,8 @@ import com.victor.world.Vector2i;
 import com.victor.world.World;
 
 public class Entity {
-
+	
+	public static BufferedImage MOEDA_SPRITE = Game.spritesheet.getSprite(144,32, 16, 16);
 
 	public double x;
 	public double y;
