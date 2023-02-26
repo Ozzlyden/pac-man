@@ -49,6 +49,8 @@ public class Game extends Canvas implements Runnable,KeyListener,MouseListener, 
 	
 	public UI ui;
 	
+	public static int moedas_cont = 0, moedas_atual = 0;
+	
 	
 	public Game() {
 		

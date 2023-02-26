@@ -51,6 +51,7 @@ public class World {
 						//Moeda
 						Moeda moeda = new Moeda(xx*16, yy*16, 16, 16, 0, Entity.MOEDA_SPRITE);
 						Game.entities.add(moeda);
+						Game.moedas_cont++;
 					}
 				}
 			}

@@ -46,6 +46,24 @@ public class Player extends Entity {
 			lastDir_up_down = -1;
 
 		}
+		takeCoin();
+		
+		if(Game.moedas_cont == Game.moedas_atual) {
+			System.out.println("Ganhamos o jogo !");
+		}
+	}
+	
+	public void takeCoin() {
+		for(int i = 0; i < Game.entities.size(); i++) {
+			Entity current = Game.entities.get(i);
+			if(current instanceof Moeda) {
+				if(Entity.isColliding(this, current)) {
+					Game.moedas_atual++;
+					Game.entities.remove(i);
+					return;
+				}
+			}
+		}
 	}
 	
 	public void render(Graphics g) {
