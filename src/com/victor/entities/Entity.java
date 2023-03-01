@@ -19,6 +19,7 @@ public class Entity {
 	public static BufferedImage ENEMY1_SPRITE = Game.spritesheet.getSprite(0,48, 16, 16);
 	public static BufferedImage ENEMY2_SPRITE = Game.spritesheet.getSprite(0,64, 16, 16);
 	public static BufferedImage ENEMY3_SPRITE = Game.spritesheet.getSprite(0,80, 16, 16);
+	public static BufferedImage GHOST_MODE_SPRITE = Game.spritesheet.getSprite(0,128, 16, 16);
 
 
 	public double x;

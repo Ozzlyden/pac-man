@@ -13,6 +13,7 @@ public class Enemy1 extends Entity{
 	
 	private int frames = 0, maxFrames = 15, index = 0, maxIndex = 1;
 	private BufferedImage[] spriteEnemy1;
+	private BufferedImage[] ghostModeSprite;
 
 	private int life = 2;
 	public boolean ghostMode = false;
@@ -25,10 +26,14 @@ public class Enemy1 extends Entity{
 		super(x, y, width, height, speed, null);
 		
 		spriteEnemy1 = new BufferedImage [2];
+		ghostModeSprite = new BufferedImage [2];
 		
 		spriteEnemy1[0] = Game.spritesheet.getSprite(0,48, 16, 16);
 		spriteEnemy1[1] = Game.spritesheet.getSprite(16, 48, 16, 16);
 		
+		ghostModeSprite[0] = Game.spritesheet.getSprite(0,128, 16, 16);
+		ghostModeSprite[1] = Game.spritesheet.getSprite(16,128, 16, 16);
+
 	}
 	
 	//LOGICA I.A
@@ -67,12 +72,27 @@ public class Enemy1 extends Entity{
 					ghostMode = false;
 				}
 			}
+			
+			//ANIMACAO
+			frames++;
+			if(frames == maxFrames) {
+					frames = 0;
+					index++;
+					if(index > maxIndex)
+						index = 0;
+				}
+			
 		}
 		
 		
 		public void render(Graphics g) {
 			super.render(g);
-			g.drawImage(spriteEnemy1[index],this.getX() - Camera.x, this.getY() - Camera.y, null);
-
+			if(ghostMode == false) {
+				super.render(g);
+				g.drawImage(spriteEnemy1[index],this.getX() - Camera.x, this.getY() - Camera.y, null);
+			}
+			else if(ghostMode == true) {
+					g.drawImage(ghostModeSprite[index],this.getX() - Camera.x, this.getY() - Camera.y, null);
+			}
 		}
 	}
