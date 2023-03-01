@@ -15,6 +15,11 @@ public class Player extends Entity {
 	
 	public int lastDir = 1, lastDir_up_down = 1;
 	
+	public double life = 100, maxLife = 100;
+	
+	public boolean isDamaged = false;
+	private int damageFrames = 0;
+	
 	public Player(int x, int y, int width, int height,double speed, BufferedImage sprite) {
 		super(x, y, width, height,speed, sprite);
 		
@@ -49,7 +54,7 @@ public class Player extends Entity {
 		takeCoin();
 		
 		if(Game.moedas_cont == Game.moedas_atual) {
-			System.out.println("Ganhamos o jogo !");
+			//System.out.println("Ganhamos o jogo !");
 		}
 	}
 	

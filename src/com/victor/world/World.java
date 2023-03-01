@@ -5,6 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import com.victor.entities.Enemy1;
+import com.victor.entities.Enemy2;
+import com.victor.entities.Enemy3;
 import com.victor.entities.Entity;
 import com.victor.entities.Moeda;
 import com.victor.main.Game;
@@ -31,6 +34,8 @@ public class World {
 					
 					/*
 					 * Player (0xFF0026FF)
+					 * Enemy 1 (0xFFFF0001)
+					 * Enemy 2 (0xFFFF0002)
 					 * Moeda  (0xFFFFD818)
 					 */
 					
@@ -45,13 +50,27 @@ public class World {
 						//Player
 						Game.player.setX(xx*16);
 						Game.player.setY(yy*16);
-					}else if(pixelAtual == 0xFFFF0000) {
-						//Instanciar inimigo e adicionar a lista das entities
-					}else if(pixelAtual == 0xFFFFD800) {
+					}
+					else if(pixelAtual == 0xFFFFD800) {
 						//Moeda
 						Moeda moeda = new Moeda(xx*16, yy*16, 16, 16, 0, Entity.MOEDA_SPRITE);
 						Game.entities.add(moeda);
 						Game.moedas_cont++;
+					}
+					else if (pixelAtual == 0xFFFF0001) {
+						//Enemy1
+						Enemy1 enemy1 = new Enemy1(xx*16, yy*16, 16, 16, 0, Entity.ENEMY1_SPRITE);
+						Game.entities.add(enemy1);
+					}
+					else if (pixelAtual == 0xFFFF0002) {
+						//Enemy2
+						Enemy2 enemy2 = new Enemy2(xx*16, yy*16, 16, 16, 0, Entity.ENEMY2_SPRITE);
+						Game.entities.add(enemy2);
+					}
+					else if (pixelAtual == 0xFFFF0003) {
+						//Enemy3
+						Enemy3 enemy3 = new Enemy3(xx*16, yy*16, 16, 16, 0, Entity.ENEMY3_SPRITE);
+						Game.entities.add(enemy3);
 					}
 				}
 			}
