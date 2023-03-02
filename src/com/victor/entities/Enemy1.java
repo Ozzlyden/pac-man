@@ -66,7 +66,7 @@ public class Enemy1 extends Entity{
 				nextTime = Entity.rand.nextInt(60*5 - 60*3) + 60*3;
 				ghostFrames = 0;
 				if(ghostMode == false) {
-					System.out.print("Modo fantasma");
+					System.out.println("Modo fantasma");
 					ghostMode = true;
 				}else {
 					ghostMode = false;

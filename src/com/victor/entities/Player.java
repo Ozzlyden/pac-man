@@ -80,7 +80,8 @@ public class Player extends Entity {
 		takeCoin();
 		
 		if(Game.moedas_cont == Game.moedas_atual) {
-			//System.out.println("Ganhamos o jogo !");
+			System.out.println("Ganhou o game");
+			World.restartGame(null);
 		}
 		
 		if(moved) {		//se o player mexer, acada 5 frames, faz uma animacao

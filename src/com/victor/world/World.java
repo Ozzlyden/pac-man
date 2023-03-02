@@ -10,6 +10,7 @@ import com.victor.entities.Enemy2;
 import com.victor.entities.Enemy3;
 import com.victor.entities.Entity;
 import com.victor.entities.Moeda;
+import com.victor.entities.Player;
 import com.victor.main.Game;
 
 public class World {
@@ -100,7 +101,14 @@ public class World {
 	}
 	
 	public static void restartGame(String level){
-		new Game();
+		//new Game();
+		
+		Game.player = new Player(0, 0, 16, 16, 2, Game.spritesheet.getSprite(32, 0, 16, 16));
+		Game.entities.clear();
+		Game.entities.add(Game.player);
+		Game.moedas_atual = 0;
+		Game.moedas_cont = 0;
+		Game.world= new World("/level1.png");
 		return;
 	}
 	
